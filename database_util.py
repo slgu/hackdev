@@ -45,17 +45,16 @@ def get_news(company):
    
 
 def add_new(symbol, title, url):
-    cursor = conn.cursor()
-    statement = 'INSERT INTO news (symbol, title, url) VALUES (\'' + symbol + '\', \'' + title + '\', \'' + url + '\');'
-    print statement
-    cursor.execute(statement)
+    statement = 'INSERT INTO news VALUES (%s, %s, %s)'
+    cursor.execute(statement, (symbol, title, url))
 
 
 def add_stock(symbol, prices, score):
-    cursor = conn.cursor()
-    statement = 'INSERT INTO stocks (symbol, prices, score) VALUES (\'' + symbol + '\', \'' + prices + '\', \'' + str(score) + '\');'
-    print statement
-    cursor.execute(statement)
+    statement = 'INSERT INTO stocks VALUES (%s, %s, %s)'
+    cursor.execute(statement, (symbol, prices, score))
+
+
+def commit():
+    conn.commit()
 
 #connect()
-#create_tables()
