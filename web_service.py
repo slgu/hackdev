@@ -70,7 +70,7 @@ def test_predict_return():
     target.append(arr)
     arr = {}
     arr["company_name"] = "LINKEDIN"
-    arr["pos_neg_value"] = -0.1s5
+    arr["pos_neg_value"] = -0.15
     target.append(arr)
     return json.dumps(target)
 

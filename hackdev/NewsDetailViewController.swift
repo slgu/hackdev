@@ -24,7 +24,7 @@ class NewsDetailViewController: UIViewController {
         news_detail_arr.delegate = self
         news_detail_arr.dataSource = self
         news_detail_arr.backgroundColor = UIColor.blackColor()
-        self.navigationItem.title = "Stock/News Detail"
+        self.navigationItem.title = Config.company_match_rev[last_json_data["company_name"].string!]
         fetch_news_detail_data(date) { (news_data : JSON) -> Void in
             if (news_data.count == 0) {
                 return

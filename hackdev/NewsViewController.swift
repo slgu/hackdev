@@ -41,7 +41,7 @@ class NewsViewController: UIViewController {
         news_collection.delegate = self
         news_collection.dataSource = self
         news_collection.backgroundColor = UIColor.blackColor()
-        self.navigationItem.title = "Newly Predict Stock"
+        self.navigationItem.title = "Prediction"
         
         /* solve nagivation collection view problem */
         self.news_collection.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length, 0)
