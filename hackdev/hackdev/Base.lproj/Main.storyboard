@@ -150,7 +150,7 @@
         <!--News View Controller-->
         <scene sceneID="lKb-EE-NSv">
             <objects>
-                <viewController id="sxf-Ns-WRX" customClass="NewsViewController" customModule="hackdev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsView" id="sxf-Ns-WRX" customClass="NewsViewController" customModule="hackdev" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BXn-xM-SnV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

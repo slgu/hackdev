@@ -15,6 +15,7 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet var news_detail_arr: UICollectionView!
     @IBOutlet var bar_chart: LineChartView!
     var news_detail_data :JSON = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let date = NSDate()
@@ -25,6 +26,9 @@ class NewsDetailViewController: UIViewController {
         news_detail_arr.backgroundColor = UIColor.blackColor()
         self.navigationItem.title = "Stock/News Detail"
         fetch_news_detail_data(date) { (news_data : JSON) -> Void in
+            if (news_data.count == 0) {
+                return
+            }
             self.news_detail_data = news_data
             self.news_detail_arr.reloadData()
         }
@@ -46,9 +50,8 @@ class NewsDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    var news_detail_url = "http://localhost:8888/news/get?datetime="
     func fetch_news_detail_data(date :NSDate, completion:(JSON) -> Void){
-        Alamofire.request(.GET, self.news_detail_url + String(date.timeIntervalSince1970), encoding: .JSON).responseData { response in
+        Alamofire.request(.GET,  Config.news_detail_url + String(date.timeIntervalSince1970), encoding: .JSON).responseData { response in
             switch response.result {
             case .Success(_):
                 let news_data: JSON = JSON(data: response.data!)
@@ -61,14 +64,12 @@ class NewsDetailViewController: UIViewController {
     }
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
 extension NewsDetailViewController: UICollectionViewDataSource {

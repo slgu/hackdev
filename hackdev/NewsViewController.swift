@@ -14,16 +14,29 @@ import Alamofire
 class NewsViewController: UIViewController {
     @IBOutlet var news_collection: UICollectionView!
     var news_data : JSON = []
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //get date
-        let date = NSDate()
-        //get news data
-        fetch_news_data(date) { (news_data : JSON) -> Void in
+    func load_data() {
+        print("load_data")
+        fetch_news_data(Config.date) { (news_data : JSON) -> Void in
+            //if no data is returned just no action
+            if (news_data.count == 0) {
+                return
+            }
             self.news_data = news_data
             self.news_collection.reloadData()
         }
-        news_collection.backgroundColor = UIColor.whiteColor()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //when recover from outside reload
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "load_data",
+            name: UIApplicationDidBecomeActiveNotification,
+            object: nil)
+           news_collection.backgroundColor = UIColor.whiteColor()
+        //first load
+        load_data()
         news_collection.delegate = self
         news_collection.dataSource = self
         news_collection.backgroundColor = UIColor.blackColor()
@@ -31,17 +44,17 @@ class NewsViewController: UIViewController {
         
         /* solve nagivation collection view problem */
         self.news_collection.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length, 0)
-        
         self.automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view.
     }
-    var predict_url = "http://localhost:8888/predict/push?datetime="
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func fetch_news_data(date :NSDate, completion:(JSON) -> Void){
-        Alamofire.request(.GET, self.predict_url + String(date.timeIntervalSince1970), encoding: .JSON).responseData { response in
+    
+    func fetch_news_data(date :NSTimeInterval, completion:(JSON) -> Void){
+        Alamofire.request(.GET, Config.predict_url + String(date), encoding: .JSON).responseData { response in
             switch response.result {
             case .Success(_):
                 let news_data: JSON = JSON(data: response.data!)

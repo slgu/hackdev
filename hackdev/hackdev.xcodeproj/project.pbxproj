@@ -21,6 +21,7 @@
 		D0D3CCAA1C652C84009F42FE /* hackdevUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D3CCA91C652C84009F42FE /* hackdevUITests.swift */; };
 		D0FA2EB51C65A3190093F126 /* NewsDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2EB41C65A3190093F126 /* NewsDetailCollectionViewCell.swift */; };
 		D0FA2EB91C65AAA90093F126 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2EB81C65AAA90093F126 /* WebViewController.swift */; };
+		D0FA2EBB1C65B1CC0093F126 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2EBA1C65B1CC0093F126 /* config.swift */; };
 		D2BFF1DD1C2485D737B8DA47 /* Pods_hackdev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55090EEDB732FC9F33C16396 /* Pods_hackdev.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		D0D3CCAB1C652C84009F42FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0FA2EB41C65A3190093F126 /* NewsDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0FA2EB81C65AAA90093F126 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ../WebViewController.swift; sourceTree = "<group>"; };
+		D0FA2EBA1C65B1CC0093F126 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		DC8E8E7BBDDB475D954D58A0 /* Pods-hackdev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackdev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackdev/Pods-hackdev.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +184,7 @@
 				D0D3CC951C652C84009F42FE /* Info.plist */,
 				D0AC1E6A1C653E4900A3DE90 /* NewsCollectionViewCell.swift */,
 				D0FA2EB41C65A3190093F126 /* NewsDetailCollectionViewCell.swift */,
+				D0FA2EBA1C65B1CC0093F126 /* config.swift */,
 			);
 			path = hackdev;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				D0D3CC8C1C652C84009F42FE /* ViewController.swift in Sources */,
 				D0D3CC8A1C652C84009F42FE /* AppDelegate.swift in Sources */,
 				D0FA2EB91C65AAA90093F126 /* WebViewController.swift in Sources */,
+				D0FA2EBB1C65B1CC0093F126 /* config.swift in Sources */,
 				D0AC1E6B1C653E4900A3DE90 /* NewsCollectionViewCell.swift in Sources */,
 				D01776721C658BFD006D5EC5 /* NewsDetailViewController.swift in Sources */,
 			);
