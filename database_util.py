@@ -28,7 +28,7 @@ def query_results(statement):
     row = cursor.fetchone()
     res = []
     while row:
-        res.add([str(item)for item in row])
+        res.append([str(item)for item in row])
         row = cursor.fetchone()
     return res
 
