@@ -140,7 +140,7 @@
             </objects>
             <point key="canvasLocation" x="102" y="1741"/>
         </scene>
-        <!--Setting-->
+        <!--View Controller-->
         <scene sceneID="KQx-mv-bFO">
             <objects>
                 <viewController id="0bX-Fa-yj3" sceneMemberID="viewController">
@@ -153,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Setting" id="yCL-hs-Qct"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="yCL-hs-Qct"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Tx-Rh-8JA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -229,11 +229,11 @@
             </objects>
             <point key="canvasLocation" x="-1350" y="-220"/>
         </scene>
-        <!--News-->
+        <!--Navigation Controller-->
         <scene sceneID="1mh-pY-3fj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oe0-bM-ya6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" id="JY3-Jv-45b"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="JY3-Jv-45b"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rOI-jy-pvZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
