@@ -53,8 +53,17 @@
                     <view key="view" contentMode="scaleToFill" id="3za-z2-kpM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lom-U4-E7z" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="5" y="77" width="373" height="231"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="bar_chart" destination="Lom-U4-E7z" id="76u-SN-xS9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oy-Gr-K5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

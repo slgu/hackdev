@@ -7,12 +7,22 @@
 //
 
 import UIKit
-
+import Charts
 class NewsDetailViewController: UIViewController {
 
+    @IBOutlet var bar_chart: LineChartView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        let values = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<12 {
+            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        let chartDataSet = LineChartDataSet(yVals: dataEntries, label: "stock price")
+        let chartData = LineChartData(xVals: months, dataSet: chartDataSet)
+        bar_chart.data = chartData
         // Do any additional setup after loading the view.
     }
 
