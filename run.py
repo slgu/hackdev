@@ -24,7 +24,7 @@ def main():
             for new in news:
                 add_new(company_list[company], new[0], new[2])
             stock = get_stock_result(start_date, end_date, company_list[company])
-            add_stock(company_list[company], ','.join([item[1] for item in stock]), score)
+            add_stock(company_list[company], ','.join([item[2] for item in stock]), score)
             # print company_list[company], score, stock
     commit()
 main()

@@ -41,9 +41,21 @@ class NewsGetter(tornado.web.RequestHandler):
         if unix_time == None:
             self.write(json.dumps([]))
             return
-        
-        #return format {"title":"", "url":"", "desc":"", "date":""} 
-        self.write(test_news_get())
+        company_name = self.get_arguments("company_name")
+        if company_name == None:
+            self.write(json.dumps([]))
+            return
+        company_name = company_name[0]
+        stocks_res = db.get_stock(company_name)
+        news_res = db.get_news(company_name)
+
+        mp = {}
+        mp["company_name"] = company_name
+        mp["stock_value"] = stocks_res[0][1]
+        mp["news"] = [{"title":item[1], "url":item[2]} for item in news_res]
+        #return format {"company_name": "stock_value":[], "news":["title": "url"]"}"
+        print mp
+        self.write(json.dumps(mp))
 
          
 def test_predict_return():
@@ -58,7 +70,7 @@ def test_predict_return():
     target.append(arr)
     arr = {}
     arr["company_name"] = "LINKEDIN"
-    arr["pos_neg_value"] = -0.15
+    arr["pos_neg_value"] = -0.1s5
     target.append(arr)
     return json.dumps(target)
 

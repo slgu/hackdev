@@ -18,6 +18,7 @@ class NewsViewController: UIViewController {
         print("load_data")
         fetch_news_data(Config.date) { (news_data : JSON) -> Void in
             //if no data is returned just no action
+            print(news_data)
             if (news_data.count == 0) {
                 return
             }
@@ -103,7 +104,7 @@ extension NewsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return news_data.count + 1
+        return news_data.count
     }
 }
 
@@ -112,6 +113,7 @@ extension NewsViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailController: NewsDetailViewController = storyboard.instantiateViewControllerWithIdentifier("NewsDetail") as! NewsDetailViewController
+        detailController.last_json_data = news_data[indexPath.row]
         //set data
         self.navigationController?.pushViewController(detailController, animated: true)
     }

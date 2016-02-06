@@ -22,6 +22,7 @@
 		D0FA2EB51C65A3190093F126 /* NewsDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2EB41C65A3190093F126 /* NewsDetailCollectionViewCell.swift */; };
 		D0FA2EB91C65AAA90093F126 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2EB81C65AAA90093F126 /* WebViewController.swift */; };
 		D0FA2EBB1C65B1CC0093F126 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA2EBA1C65B1CC0093F126 /* config.swift */; };
+		D0FA2EBF1C65F5E80093F126 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FA2EBE1C65F5E80093F126 /* 1.png */; };
 		D2BFF1DD1C2485D737B8DA47 /* Pods_hackdev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55090EEDB732FC9F33C16396 /* Pods_hackdev.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		D0FA2EB41C65A3190093F126 /* NewsDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0FA2EB81C65AAA90093F126 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ../WebViewController.swift; sourceTree = "<group>"; };
 		D0FA2EBA1C65B1CC0093F126 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
+		D0FA2EBE1C65F5E80093F126 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = ../../Desktop/1.png; sourceTree = "<group>"; };
 		DC8E8E7BBDDB475D954D58A0 /* Pods-hackdev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackdev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hackdev/Pods-hackdev.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 		D0D3CC7D1C652C84009F42FE = {
 			isa = PBXGroup;
 			children = (
+				D0FA2EBE1C65F5E80093F126 /* 1.png */,
 				D03F48571C65994900FA09BB /* Charts.xcodeproj */,
 				D0D3CC881C652C84009F42FE /* hackdev */,
 				D0D3CC9D1C652C84009F42FE /* hackdevTests */,
@@ -364,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D01776701C6578E4006D5EC5 /* Main.storyboard in Resources */,
+				D0FA2EBF1C65F5E80093F126 /* 1.png in Resources */,
 				D0D3CC941C652C84009F42FE /* LaunchScreen.storyboard in Resources */,
 				D0D3CC911C652C84009F42FE /* Assets.xcassets in Resources */,
 			);

@@ -21,8 +21,8 @@ def search_news(company, date):
         d = datetime.strptime(result['Date'], "%Y-%m-%dT%H:%M:%SZ")
         if d > date:
             url = result['Url']
-            title = result['Title'].replace(u'\xa3', '').replace(u"\u2018", '').replace(u"\u2019", '').replace(u'\u20ac', '').replace(u'\u201c', '').replace(u'\u201d', '').replace(u'\u2013', '').replace('\'', '').replace('"', '')
-            desc = result['Description'].replace(u'\xa3', '').replace(u"\u2018", '').replace(u"\u2019", '').replace(u'\u20ac', '').replace(u'\u201c', '').replace(u'\u201d', '').replace(u'\u2013', '').replace('\'', '').replace('"', '')
+            title = result['Title'].replace(u'\u2026', '').replace(u'\xa3', '').replace(u"\u2018", '').replace(u"\u2019", '').replace(u'\u20ac', '').replace(u'\u201c', '').replace(u'\u201d', '').replace(u'\u2013', '').replace('\'', '').replace('"', '')
+            desc = result['Description'].replace(u'\u2026', '').replace(u'\xa3', '').replace(u"\u2018", '').replace(u"\u2019", '').replace(u'\u20ac', '').replace(u'\u201c', '').replace(u'\u201d', '').replace(u'\u2013', '').replace('\'', '').replace('"', '')
             res.append([title, desc, url])
     return res
 

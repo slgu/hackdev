@@ -13,5 +13,7 @@ class Config {
     static let predict_url = host + "/predict/push?datetime="
     static let news_detail_url = host + "/news/get?datetime="
     static var alertflag = true
+    static let company_match = ["Google":"GOOGL", "Facebook": "FB", "Microsoft": "MSFT", "LinkedIn": "LNKD", "Square": "SQ", "Tableau": "DATA", "WalMart": "WMT", "Best Buy": "BBY", "Control4 Corporation":"CTRL"]
+    static let company_match_rev = ["GOOGL":"Google", "FB": "Facebook", "MSFT": "Microsoft", "LNKD": "LinkedIn", "SQ": "Square", "DATA": "Tableau", "WMT": "WalMart", "BBY": "Best Buy", "CTRL":"Control4 Corporation"]
     //needed to fix to store locally
 }
