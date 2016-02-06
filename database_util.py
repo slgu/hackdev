@@ -1,5 +1,5 @@
 import pymssql
-import _mysql
+import MySQLdb
 
 
 conn = None
@@ -9,13 +9,12 @@ cursor = None
 def connect():
     global conn
     global cursor
-    srv = 'stockhunter.csfqneogzevi.us-west-2.rds.amazonaws.com:3306' #'stockhunter.database.windows.net'
+    srv = 'stockhunter.csfqneogzevi.us-west-2.rds.amazonaws.com' #'stockhunter.database.windows.net'
     database = 'StockHunter'
     usr = 'test' #'test@stockhunter'
     psw = 'pass123!' #'pass123!'
     # conn = pymssql.connect(server=srv, user=usr, password=psw, database=db)
-    conn = _mysql.connect(host=srv,user=usr,
-                  passwd=psw,db=database)
+    conn = MySQLdb.connect(host=srv,user=usr,passwd=psw,db=database)
     cursor = conn.cursor()
 
 def create_tables():
