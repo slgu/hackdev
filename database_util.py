@@ -47,13 +47,14 @@ def get_news(company):
 def add_new(symbol, title, url):
     statement = 'INSERT INTO news VALUES (%s, %s, %s)'
     cursor.execute(statement, (symbol, title, url))
-    
+
 
 def add_stock(symbol, prices, score):
     statement = 'INSERT INTO stocks VALUES (%s, %s, %s)'
     cursor.execute(statement, (symbol, prices, score))
 
+
 def commit():
     conn.commit()
 
-connect()
+#connect()
