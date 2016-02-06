@@ -103,7 +103,7 @@ extension NewsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return news_data.count
+        return news_data.count + 1
     }
 }
 

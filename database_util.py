@@ -18,9 +18,9 @@ def connect():
     cursor = conn.cursor()
 
 def create_tables():
-    create_news = "CREATE TABLE news (symbol varchar(10), title varchar(200), url varchar(200));"
+    create_news = "CREATE TABLE news (symbol varchar(10), title varchar(200), url varchar(200), PRIMARY KEY (title));"
     cursor.execute(create_news)
-    create_stocks = "CREATE TABLE stocks ( symbol varchar(10), prices varchar(200), score varchar(200));"
+    create_stocks = "CREATE TABLE stocks ( symbol varchar(10), prices varchar(200), score varchar(200), PRIMARY KEY (symbol));"
     cursor.execute(create_stocks)
 
 def query_results(statement):
@@ -28,7 +28,7 @@ def query_results(statement):
     row = cursor.fetchone()
     res = []
     while row:
-        res.add([str(item)for item in row])
+        res.append([str(item)for item in row])
         row = cursor.fetchone()
     return res
 
@@ -57,4 +57,5 @@ def add_stock(symbol, prices, score):
 def commit():
     conn.commit()
 
-#connect()
+connect()
+#create_tables()

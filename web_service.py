@@ -11,6 +11,7 @@ import sys,os,math,time,logging,json
 import tornado.ioloop
 import tornado.web
 import json
+import database_util as db
 
 def check_double(date):
     if date == None:
@@ -67,9 +68,13 @@ class PredictPush(tornado.web.RequestHandler):
         if unix_time == None:
             self.write(json.dumps([]))
             return
+        res = db.get_predict()
         #return format {"company_name":"", "pos_neg_value":} 
-        self.write(test_predict_return()) 
-    
+        #add empty things
+        hash_arr = [{"company_name":"","pos_neg_value":1.0}]
+        hash_arr += [{"company_name":str(item[0]), "pos_neg_value":float(item[2])} for item in res]
+        self.write(json.dumps(hash_arr)) 
+            
 
 
 def make_app():
