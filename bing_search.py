@@ -1,35 +1,30 @@
-#!/bin/env python
-# coding=utf-8
-#     File Name: bing_search.py
-#     Author: Gu Shenlong
-#     Mail: blackhero98@gmail.com
-#     Created Time: Fri Feb  5 17:35:09 2016
-
-
-import sys,os,math,time,logging,json
-
 import requests
 import urllib2
-QUERY_URL = 'https://api.datamarket.azure.com/Bing/Search/News' + '?Query={}&$top={}&$skip={}&$format={}'
+from datetime import datetime
 
-def fetch(query):
+
+def search_news(company, date):
+    date = datetime.strptime(date, "%Y-%m-%d")
+    QUERY_URL = 'https://api.datamarket.azure.com/Bing/Search/News' + '?Query={}&$top={}&$skip={}&$format={}&NewsSortBy=%27Date%27'
     API_KEY = "aXhVYrh/6fy19csXteZVZ70HtS88vP194vWGijHw6s0"
     limit = 10
     offset = 0 
     format = "json"
-    url = QUERY_URL.format(urllib2.quote("'{}'".format(query)), limit, offset, format)
-    print url
+    url = QUERY_URL.format(urllib2.quote("'{}'".format(company)), limit, offset, format)
     r = requests.get(url, auth=("", API_KEY))
     try:
         json_results = r.json()
     except Exception as e:
-        print "format json error"
+        print Exception
+    res = []
     for result in json_results['d']['results']:
-        url = result['Url']
-        title = result['Title']
-        desc = result['Description']
-        id = result['ID']
-        print url, title, desc, id
+        d = datetime.strptime(result['Date'], "%Y-%m-%dT%H:%M:%SZ")
+        if d > date:
+            url = result['Url']
+            title = result['Title'].replace(u"\u2018", '').replace(u"\u2019", '').replace(u'\u20ac', '').replace('\'', '').replace('"', '')
+            desc = result['Description'].replace(u"\u2018", '').replace(u"\u2019", '').replace(u'\u20ac', '').replace('\'', '').replace('"', '')
+            res.append([title, desc, url])
+    return res
 
-if __name__ == "__main__":
-    fetch("google") 
+
+# print search_news("google", "2016-2-6")

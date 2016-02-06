@@ -3,15 +3,15 @@ import urllib
 import calendar
 from datetime import datetime
 
-# unix time,  unix time, string
-def get_stock_result(start, end, symbol):
 
-    start_date = datetime.fromtimestamp(start).strftime('%Y-%m-%d')
-    end_date = datetime.fromtimestamp(end).strftime('%Y-%m-%d')
+# unix time,  unix time, string
+def get_stock_result(start_date, end_date, symbol):
+    # start_date = datetime.fromtimestamp(start).strftime('%Y-%m-%d')
+    # end_date = datetime.fromtimestamp(end).strftime('%Y-%m-%d')
 
     url = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20yahoo.finance.historicaldata%20" + \
-          "WHERE%20symbol%3D%22" + symbol + "%22%20and%20startDate%3D%22" + start_date + "%22%20and%20endDate%3D%22" + end_date \
-          + "%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
+          "WHERE%20symbol%3D%22" + symbol + "%22%20and%20startDate%3D%22" + start_date + "%22%20and%20endDate%3D%22" + \
+          end_date + "%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
     query = ''
 
     params = urllib.urlencode({
@@ -36,7 +36,7 @@ def str_to_timestamp(str):
     return calendar.timegm(date.utctimetuple())
 
 
-start_date_unix = 1386181800
-end_date_unix = 1386281801 #1386181800
+start_date_unix = "2016-02-01" #1386181800
+end_date_unix = "2016-02-05" #1386281801
 test_symbol = "yhoo"
-print get_stock_result(start_date_unix, end_date_unix, test_symbol)
+#get_stock_result(start_date_unix, end_date_unix, test_symbol)
