@@ -33,15 +33,15 @@ def query_results(statement):
     return res
 
 def get_stock(company):
-    query_results('SELECT * from ' + 'stocks' + 'where symbol = ' + company)
+    return query_results('SELECT * from ' + 'stocks' + 'where symbol = ' + company)
 
 
 def get_predict():
-    query_results('SELECT * from ' + 'stocks')
+    return query_results('SELECT * from ' + 'stocks')
 
 
 def get_news(company):
-    query_results('SELECT * from ' + 'news' + 'where news = ' + company)
+    return query_results('SELECT * from ' + 'news' + 'where news = ' + company)
    
 
 def add_new(symbol, title, url):
