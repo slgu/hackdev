@@ -33,27 +33,27 @@ def query_results(statement):
     return res
 
 def get_stock(company):
-    query_results('SELECT * from ' + 'stocks' + 'where symbol = ' + company)
+    return query_results('SELECT * from ' + 'stocks' + 'where symbol = ' + company)
 
 
 def get_predict():
-    query_results('SELECT * from ' + 'stocks')
+    return query_results('SELECT * from ' + 'stocks')
 
 
 def get_news(company):
-    query_results('SELECT * from ' + 'news' + 'where news = ' + company)
+    return query_results('SELECT * from ' + 'news' + 'where news = ' + company)
    
 
 def add_new(symbol, title, url):
-    statement = 'INSERT INTO news VALUES (\'' + symbol + '\', \'' + title + '\', \'' + url + '\')'
-    print statement
-    cursor.execute(statement)
+    statement = 'INSERT INTO news VALUES (%s, %s, %s)'
+    cursor.execute(statement, (symbol, title, url))
+    
 
+def add_stock(symbol, prices, score):
+    statement = 'INSERT INTO stocks VALUES (%s, %s, %s)'
+    cursor.execute(statement, (symbol, prices, score))
 
-def add_stock(symbol, prices):
-    statement = 'INSERT INTO stocks VALUES (\'' + symbol + '\', \'' + prices + '\')'
-    print statement
-    cursor.execute(statement)
+def commit():
+    conn.commit()
 
 connect()
-#create_tables()

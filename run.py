@@ -24,7 +24,7 @@ def main():
                 add_new(company_list[company], new[0], new[2])
                 time.sleep(1)
             stock = get_stock_result(start_date, end_date, company_list[company])
-            add_stock(company_list[company], '10,10,10,10,10,10,10,10,10,10')
+            add_stock(company_list[company], ','.join([item[1] for item in stock]), score)
             print company_list[company], score, stock
-
+    commit()
 main()
